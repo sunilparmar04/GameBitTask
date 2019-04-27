@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/color_FFD8D8D8"
     android:orientation="vertical">
 
@@ -11,6 +11,7 @@
     <LinearLayout android:layout_marginBottom="@dimen/margin_12"
         android:background="@drawable/round_corner"
         android:layout_marginLeft="@dimen/margin_11"
+
         android:layout_marginRight="@dimen/margin_11"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -42,22 +43,24 @@
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/firstNameTextView"
                         style="@style/Arial_BoldMT"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
                         android:lineSpacingExtra="@dimen/line_space_14"
-                        android:text="sunil"
+                        android:text="FirstName"
                         android:textColor="@color/color_b3b3b3"
                         android:textSize="@dimen/text_12" />
 
                     <TextView
+                        android:id="@+id/teamNameTextView"
                         style="@style/Arial_BoldMT"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:lineSpacingExtra="@dimen/line_space_14"
-                        android:text="sunil"
+                        android:text="Team Name"
                         android:textColor="@color/color_b3b3b3"
                         android:textSize="@dimen/text_12" />
                 </RelativeLayout>
@@ -67,20 +70,22 @@
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/lastNameTextView"
                         style="@style/Arial_BoldMT"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
-                        android:text="sunil"
+                        android:text="Last name"
                         android:textColor="@color/color_666666"
                         android:textSize="@dimen/text_22" />
 
                     <TextView
+                        android:id="@+id/teamIdTextView"
                         style="@style/Arial_BoldMT"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
-                        android:text="sunil"
+                        android:text="teamId"
                         android:textColor="@color/color_b3b3b3"
                         android:textSize="@dimen/text_22" />
                 </RelativeLayout>
@@ -92,7 +97,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/color_F5F6FF"
+            android:background="@drawable/rounded_two_corner"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -106,6 +111,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/positionTextView"
                     style="@style/ArialMT"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -123,6 +129,7 @@
                     android:background="@color/color_FFD8D8D8" />
 
                 <TextView
+                    android:id="@+id/fullNameTextView"
                     style="@style/ArialMT"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -141,6 +148,7 @@
                     android:background="@color/color_FFD8D8D8" />
 
                 <TextView
+                    android:id="@+id/conferenceTextView"
                     style="@style/ArialMT"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

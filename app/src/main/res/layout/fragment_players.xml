@@ -3,10 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
-    <TextView
-        android:layout_width="match_parent"
-        android:text="Pla"
-        android:layout_height="wrap_content" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/playerRecyclerView"
         android:layout_width="match_parent"

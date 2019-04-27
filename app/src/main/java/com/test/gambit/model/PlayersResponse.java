@@ -8,9 +8,9 @@ import java.util.ArrayList;
 
 public class PlayersResponse {
 
-    ArrayList<Data> data;
+    private ArrayList<Data> data;
 
-    class Data {
+   public class Data {
         private int id;
         private String firstName;
         private String lastName;
@@ -87,7 +87,7 @@ public class PlayersResponse {
     }
 
 
-    class Team {
+ public    class Team {
 
         private int id;
         private String abbreviation;
@@ -155,4 +155,11 @@ public class PlayersResponse {
 
     }
 
+    public ArrayList<Data> getData() {
+        return data;
+    }
+
+    public void setData(ArrayList<Data> data) {
+        this.data = data;
+    }
 }

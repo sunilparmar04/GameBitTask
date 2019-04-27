@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_FFD8D8D8"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_12"
+        android:layout_marginLeft="@dimen/margin_13"
+        android:layout_marginRight="@dimen/margin_13"
+        android:background="@drawable/round_corner"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_12"
+            android:layout_marginRight="@dimen/margin_12"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/homeTeamLinearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginBottom="@dimen/margin_10"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/width_16"
+                    android:layout_height="@dimen/height_9"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="@dimen/margin_10"
+                    android:layout_marginRight="@dimen/margin_6"
+                    android:layout_marginTop="@dimen/margin_18"
+                    android:src="@drawable/lal" />
+
+                <TextView
+                    android:id="@+id/homeTeamAbbreviationTextView"
+                    style="@style/Arial_BoldMT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:layout_marginTop="@dimen/margin_12"
+                    android:text="LAL"
+                    android:textColor="@color/color_FF666666"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/visitorTeamLinearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="@dimen/margin_10"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/visitorTeamAbbreviationTextView"
+                    style="@style/Arial_BoldMT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:layout_marginTop="@dimen/margin_12"
+                    android:text="GSW"
+                    android:textColor="@color/color_FF666666"
+                    android:textSize="20sp" />
+
+                <ImageView
+
+                    android:layout_width="@dimen/width_16"
+                    android:layout_height="@dimen/height_9"
+                    android:layout_marginLeft="@dimen/margin_9"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="@dimen/margin_10"
+                    android:layout_marginRight="@dimen/margin_6"
+                    android:layout_marginTop="@dimen/margin_18"
+                    android:src="@drawable/visitor_team" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/homeTeamFullNameTextView"
+                android:layout_width="88dp"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/homeTeamLinearLayout"
+                android:layout_marginBottom="@dimen/margin_11"
+                android:text="Los Angeles Lakers"
+                android:textColor="@color/color_FF999999"
+                android:textSize="@dimen/text_11" />
+
+            <TextView
+                android:singleLine="true"
+                android:id="@+id/visitorTeamFullNameíTextView"
+                style="@style/ArialMT"
+                android:layout_width="99dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/visitorTeamLinearLayout"
+                android:gravity="end"
+                android:text="Golden State Warriors"
+                android:textColor="@color/color_FF999999"
+                android:textSize="@dimen/text_11" />
+
+            <TextView
+                style="@style/Arial_BoldMT"
+                android:layout_width="17dp"
+                android:layout_height="14dp"
+                android:layout_centerInParent="true"
+                android:text="@string/text_vs"
+                android:textColor="@color/color_FFCCCCCC"
+                android:textSize="@dimen/text_12" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

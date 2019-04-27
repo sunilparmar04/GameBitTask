@@ -111,13 +111,11 @@ public class NetworkCall<T> implements Parcelable {
         DoorCoreVolley<T> doorCoreVolley = new DoorCoreVolley<T>(Utility.getHeaders()) {
             @Override
             public String getURL() {
-                Log.e("Pawan DoorCoreUtilities", "getURL: " + url);
                 return url;
             }
 
             @Override
             public void onResponseString(String response) {
-                Log.e("Pawan DoorCoreVolley", "onResponseString: ");
                 Logger.dd("Pawan", response);
                 //addNotification(response);
             }
@@ -133,7 +131,6 @@ public class NetworkCall<T> implements Parcelable {
                 try {
 
                     progressDialogFragment.dismiss();
-                    Log.e("deekshant", "response 1 1 11  handleError " + error);
                     super.handleError(error);
                     networkCallback.onError(error);
 
@@ -182,7 +179,6 @@ public class NetworkCall<T> implements Parcelable {
                 if (getParams() != null)
                     params.putAll(getParams());
 
-                Log.e("Pawan " + TAG, "getAdditionalParams: " + params);
                 return params;
             }
         };
@@ -197,14 +193,11 @@ public class NetworkCall<T> implements Parcelable {
         DoorCoreVolley<T> doorCoreVolley = new DoorCoreVolley<T>(Utility.getHeaders()) {
             @Override
             public String getURL() {
-                Log.e("Pawan " + TAG, "getURL: " + url);
                 return url;
             }
 
             @Override
             public void onResponseString(String response) {
-                Log.e("Pawan DoorCoreVolley", "onResponseString: ");
-                Logger.dd("Pawan", response);
                 //addNotification(response);
 
             }
@@ -265,7 +258,6 @@ public class NetworkCall<T> implements Parcelable {
                 HashMap<String, String> params = (HashMap<String, String>) super.getAdditionalParams();
                 if (getParams() != null)
                     params.putAll(getParams());
-                Log.e("Pawan " + TAG, "getAdditionalParams: " + params);
                 return params;
             }
         };

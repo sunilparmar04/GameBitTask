@@ -3,21 +3,113 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/color_FFD8D8D8"
     android:orientation="vertical">
 
-
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tablayout"
+    <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:elevation="2dp"
-        app:tabSelectedTextColor="@color/color_4D55FF"
-        app:tabTextColor="@color/color_9B9B9B"
-        app:tabIndicatorColor="@color/color_4D55FF"
-        app:tabIndicatorHeight="3dp"></android.support.design.widget.TabLayout>
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewpager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></android.support.v4.view.ViewPager>
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="164dp"
+            android:background="@drawable/bg"
+            android:fitsSystemWindows="true">
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/collapse_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fitsSystemWindows="true"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_collapseMode="parallax">
+
+                    <RelativeLayout
+                        android:id="@+id/action_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="164dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/profileImageView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/margin_48"
+                            android:src="@drawable/profile" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </android.support.design.widget.CollapsingToolbarLayout>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <android.support.design.widget.TabLayout
+
+                android:id="@+id/tablayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/color_ffffff"
+                android:elevation="2dp"
+                app:tabIndicatorColor="@color/color_4D55FF"
+                app:tabIndicatorHeight="3dp"
+                app:tabSelectedTextColor="@color/color_4D55FF"
+                app:tabTextColor="@color/color_9B9B9B"></android.support.design.widget.TabLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_12"
+                android:layout_marginLeft="@dimen/margin_11"
+                android:layout_marginRight="@dimen/margin_11"
+                android:layout_marginTop="@dimen/margin_12"
+                android:background="@drawable/gray_capsule"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_9"
+                    android:layout_marginLeft="@dimen/margin_17"
+                    android:layout_marginTop="@dimen/margin_8"
+                    android:background="@null"
+                    android:focusableInTouchMode="true"
+                    android:hint="type to search..."
+                    android:textColor="@color/color_FF999999" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/margin_14"
+                    android:backgroundTint="@color/color_ffffff"
+                    android:src="@drawable/search" />
+            </RelativeLayout>
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"></android.support.v4.view.ViewPager>
+
+        </LinearLayout>
+
+    </android.support.design.widget.CoordinatorLayout>
 </LinearLayout>
