@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">GamebitTask</string>
+    <string name="no_internet">No internet,check your connectivity</string>
+</resources>

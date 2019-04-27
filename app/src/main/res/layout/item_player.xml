@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_FFD8D8D8"
+    android:orientation="vertical">
+
+
+    <LinearLayout android:layout_marginBottom="@dimen/margin_12"
+        android:background="@drawable/round_corner"
+        android:layout_marginLeft="@dimen/margin_11"
+        android:layout_marginRight="@dimen/margin_11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_16"
+            android:layout_marginRight="@dimen/margin_16"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/width_32"
+                android:layout_height="@dimen/height_32"
+                android:layout_marginBottom="@dimen/margin_15"
+                android:layout_marginTop="@dimen/margin_15"
+                android:src="@drawable/profile" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_10"
+                android:layout_marginTop="@dimen/margin_12"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/Arial_BoldMT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:lineSpacingExtra="@dimen/line_space_14"
+                        android:text="sunil"
+                        android:textColor="@color/color_b3b3b3"
+                        android:textSize="@dimen/text_12" />
+
+                    <TextView
+                        style="@style/Arial_BoldMT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:lineSpacingExtra="@dimen/line_space_14"
+                        android:text="sunil"
+                        android:textColor="@color/color_b3b3b3"
+                        android:textSize="@dimen/text_12" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/Arial_BoldMT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:text="sunil"
+                        android:textColor="@color/color_666666"
+                        android:textSize="@dimen/text_22" />
+
+                    <TextView
+                        style="@style/Arial_BoldMT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:text="sunil"
+                        android:textColor="@color/color_b3b3b3"
+                        android:textSize="@dimen/text_22" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_F5F6FF"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="@dimen/margin_10"
+                android:layout_marginLeft="@dimen/margin_16"
+                android:layout_marginRight="@dimen/margin_16"
+                android:layout_marginTop="@dimen/margin_10"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/ArialMT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="@dimen/line_space_14"
+                    android:textColor="@color/color_FF999999"
+                    android:textSize="@dimen/text_12"
+                    tools:text="Position - F" />
+
+                <View
+                    android:layout_width="@dimen/width_4"
+                    android:layout_height="@dimen/height_4"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/margin_10"
+                    android:layout_marginRight="@dimen/margin_14"
+                    android:background="@color/color_FFD8D8D8" />
+
+                <TextView
+                    style="@style/ArialMT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="@dimen/line_space_14"
+                    android:textColor="@color/color_FF999999"
+                    android:textSize="@dimen/text_12"
+                    tools:text="Los Angeles Lakers" />
+
+
+                <View
+                    android:layout_width="@dimen/width_4"
+                    android:layout_height="@dimen/height_4"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/margin_6"
+                    android:layout_marginRight="@dimen/margin_6"
+                    android:background="@color/color_FFD8D8D8" />
+
+                <TextView
+                    style="@style/ArialMT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="@dimen/line_space_14"
+                    android:textColor="@color/color_FF999999"
+                    android:textSize="@dimen/text_12"
+                    tools:text="West / Pacific" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
