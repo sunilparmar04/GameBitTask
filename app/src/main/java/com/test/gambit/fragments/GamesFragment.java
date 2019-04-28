@@ -17,6 +17,7 @@ import com.test.gambit.model.GameResponse;
 import com.test.gambit.utils.AppConstants;
 import com.test.gambit.utils.CommonUtils;
 import com.test.gambit.utils.NetworkUtils;
+import com.test.gambit.views.HomeActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -54,6 +55,7 @@ public class GamesFragment extends Fragment {
         mAdapter = new GameAdapter();
         mGameRecycleView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mGameRecycleView.setAdapter(mAdapter);
+
     }
 
     private void getGame() {
@@ -82,6 +84,8 @@ public class GamesFragment extends Fragment {
         if (response.getData().size() > 0) {
             gameArrayList.addAll(response.getData());
             mAdapter.notifyDataSetChanged();
+            updateTabText();
+
         }
     }
 
@@ -128,6 +132,24 @@ public class GamesFragment extends Fragment {
         @Override
         public int getItemCount() {
             return gameArrayList.size();
+        }
+    }
+
+    public void updateTabText() {
+        try {
+
+            View view = ((HomeActivity) getActivity()).mTabLayout.getTabAt(1).getCustomView();
+            View badgeContainer = view.findViewById(R.id.badgeCotainer);
+            TextView countTextView = view.findViewById(R.id.badge);
+            if (gameArrayList.size() > 0) {
+                badgeContainer.setVisibility(View.VISIBLE);
+                countTextView.setText(gameArrayList.size() + "");
+            } else {
+                badgeContainer.setVisibility(View.GONE);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+
         }
     }
 

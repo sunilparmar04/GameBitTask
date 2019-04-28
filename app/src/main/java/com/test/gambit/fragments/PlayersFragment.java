@@ -17,6 +17,7 @@ import com.test.gambit.model.PlayersResponse;
 import com.test.gambit.utils.AppConstants;
 import com.test.gambit.utils.CommonUtils;
 import com.test.gambit.utils.NetworkUtils;
+import com.test.gambit.views.HomeActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -83,7 +84,7 @@ public class PlayersFragment extends Fragment {
 
     private void parseData(PlayersResponse response) {
         playerArrayList.addAll(response.getData());
-
+        updateTabText();
         if (playerArrayList.size() > 0) {
             mAdapter.notifyDataSetChanged();
         }
@@ -175,6 +176,25 @@ public class PlayersFragment extends Fragment {
         @Override
         public int getItemCount() {
             return playerArrayList.size();
+        }
+    }
+
+
+    public void updateTabText() {
+        try {
+
+            View view = ((HomeActivity) getActivity()).mTabLayout.getTabAt(0).getCustomView();
+            View badgeContainer = view.findViewById(R.id.badgeCotainer);
+            TextView countTextView = view.findViewById(R.id.badge);
+            if (playerArrayList.size() > 0) {
+                badgeContainer.setVisibility(View.VISIBLE);
+                countTextView.setText(playerArrayList.size() + "");
+            } else {
+                badgeContainer.setVisibility(View.GONE);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+
         }
     }
 

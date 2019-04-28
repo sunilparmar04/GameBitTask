@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true">
+
+    <TextView
+        android:id="@android:id/text1"
+        style="@style/ArialMT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="2"
+        android:text="Player"
+        android:textAllCaps="false"
+        android:textColor="@color/color_9B9B9B"
+        android:textSize="@dimen/text_12" />
+
+    <LinearLayout
+        android:id="@+id/badgeCotainer"
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        android:layout_marginLeft="@dimen/margin_6"
+        android:layout_marginRight="12dp"
+        android:layout_toRightOf="@android:id/text1"
+        android:background="@drawable/circle_shape"
+        android:gravity="center"
+        android:minWidth="16dp"
+        android:visibility="gone">
+
+        <TextView
+            style="@style/Arial_BoldMT"
+            android:id="@+id/badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3"
+            android:textAlignment="center"
+            android:textColor="#fff"
+            android:textSize="@dimen/text_9" />
+    </LinearLayout>
+</RelativeLayout>

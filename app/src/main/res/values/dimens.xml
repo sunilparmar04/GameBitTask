@@ -25,7 +25,7 @@
     <dimen name="height_9">9.6dp</dimen>
     <dimen name="width_32">32dp</dimen>
     <dimen name="height_32">32dp</dimen>
-
+    <dimen name="text_9">9sp</dimen>
     <dimen name="text_10">10sp</dimen>
     <dimen name="text_11">11sp</dimen>
     <dimen name="text_12">12sp</dimen>
