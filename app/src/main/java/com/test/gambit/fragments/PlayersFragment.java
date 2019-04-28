@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import com.test.gambit.model.PlayersResponse;
 import com.test.gambit.utils.AppConstants;
 import com.test.gambit.utils.CommonUtils;
 import com.test.gambit.utils.NetworkUtils;
+import com.test.gambit.utils.RecyclerViewEndlessScrollListener;
 import com.test.gambit.views.HomeActivity;
 
 import java.util.ArrayList;
@@ -36,6 +38,9 @@ public class PlayersFragment extends Fragment {
 
     private RecyclerView mPlayerRecycleView;
     private PlayerAdapter mAdapter;
+    private int mPage = 0;
+    private RecyclerViewEndlessScrollListener recyclerViewEndlessScrollListener;
+    private LinearLayoutManager mLayoutManager;
 
     private ArrayList<PlayersResponse.Data> playerArrayList = new ArrayList<>();
 
@@ -45,19 +50,36 @@ public class PlayersFragment extends Fragment {
         mView = inflater.inflate(R.layout.fragment_players, container, false);
         initViews();
         playerArrayList.clear();
+        initListener();
         initAdapter();
         getPlayers();
         return mView;
     }
 
     private void initViews() {
+        mLayoutManager=new LinearLayoutManager(getActivity());
         mPlayerRecycleView = mView.findViewById(R.id.playerRecyclerView);
     }
 
     private void initAdapter() {
         mAdapter = new PlayerAdapter();
-        mPlayerRecycleView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mPlayerRecycleView.setLayoutManager(mLayoutManager);
         mPlayerRecycleView.setAdapter(mAdapter);
+    }
+
+
+    private void initListener() {
+
+        recyclerViewEndlessScrollListener = new RecyclerViewEndlessScrollListener(mLayoutManager) {
+            @Override
+            public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
+                Log.d("scroll_listener", "load_more:");
+                ++mPage;
+                getPlayers();
+
+            }
+        };
+        mPlayerRecycleView.addOnScrollListener(recyclerViewEndlessScrollListener);
     }
 
     private void getPlayers() {
@@ -78,6 +100,7 @@ public class PlayersFragment extends Fragment {
             }
         };
         Map<String, String> params = new HashMap<>();
+        params.put(AppConstants.PARAMS_PAGE, "" + mPage);
         NetworkCall<PlayersResponse> networkCall = new NetworkCall<>(AppConstants.PlAYERS_URL, new HashMap<String, String>(), Request.Method.GET, networkCallback, PlayersResponse.class);
         networkCall.initiateCall("Getting players...", getActivity().getSupportFragmentManager());
     }

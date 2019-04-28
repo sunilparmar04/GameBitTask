@@ -5,6 +5,9 @@ public class AppConstants {
     public static final String PlAYERS_URL=BASE_URL+"players";
     public static final String GAMES_URL=BASE_URL+"games";
 
+
+    public static final String PARAMS_PAGE="page";
+
     private AppConstants() {
         // This utility class is not publicly instantiable
     }

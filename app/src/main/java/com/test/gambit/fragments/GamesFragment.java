@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import com.test.gambit.model.GameResponse;
 import com.test.gambit.utils.AppConstants;
 import com.test.gambit.utils.CommonUtils;
 import com.test.gambit.utils.NetworkUtils;
+import com.test.gambit.utils.RecyclerViewEndlessScrollListener;
 import com.test.gambit.views.HomeActivity;
 
 import java.util.ArrayList;
@@ -35,7 +37,9 @@ public class GamesFragment extends Fragment {
     private RecyclerView mGameRecycleView;
     private GameAdapter mAdapter;
     private ArrayList<GameResponse.Data> gameArrayList = new ArrayList<>();
-
+    private int mPage = 0;
+    private RecyclerViewEndlessScrollListener recyclerViewEndlessScrollListener;
+    private LinearLayoutManager mLayoutManager;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -44,16 +48,32 @@ public class GamesFragment extends Fragment {
         gameArrayList.clear();
         initAdapter();
         getGame();
+        initListener();
         return mView;
     }
 
     private void initViews() {
+        mLayoutManager=new LinearLayoutManager(getActivity());
         mGameRecycleView = mView.findViewById(R.id.gameRecyclerView);
+    }
+
+    private void initListener() {
+
+        recyclerViewEndlessScrollListener = new RecyclerViewEndlessScrollListener(mLayoutManager) {
+            @Override
+            public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
+                Log.d("scroll_listener", "load_more:");
+                ++mPage;
+                getGame();
+
+            }
+        };
+        mGameRecycleView.addOnScrollListener(recyclerViewEndlessScrollListener);
     }
 
     private void initAdapter() {
         mAdapter = new GameAdapter();
-        mGameRecycleView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mGameRecycleView.setLayoutManager(mLayoutManager);
         mGameRecycleView.setAdapter(mAdapter);
 
     }
@@ -76,8 +96,15 @@ public class GamesFragment extends Fragment {
             }
         };
         Map<String, String> params = new HashMap<>();
+        params.put(AppConstants.PARAMS_PAGE, "" + mPage);
         NetworkCall<GameResponse> networkCall = new NetworkCall<>(AppConstants.GAMES_URL, new HashMap<String, String>(), Request.Method.GET, networkCallback, GameResponse.class);
-        networkCall.initiateCall();
+        if (mPage>0) {
+            networkCall.initiateCall("Getting games...", getActivity().getSupportFragmentManager());
+        }else {
+            networkCall.initiateCall();
+        }
+
+
     }
 
     private void parseData(GameResponse response) {
