@@ -63,6 +63,10 @@ public class GamesFragment extends Fragment {
             @Override
             public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
                 Log.d("scroll_listener", "load_more:");
+                if (!NetworkUtils.isNetworkConnected(getActivity())) {
+                    CommonUtils.getInstance().showRedToast(getString(R.string.no_internet), getActivity(), 112);
+                    return;
+                }
                 ++mPage;
                 getGame();
 
